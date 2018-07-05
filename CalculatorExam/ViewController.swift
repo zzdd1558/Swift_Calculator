@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var displayText : String = ""
     var op : String = ""
     var first :String = ""
-    var second:String = ""
+    
     let opArray : Array = ["+" , "-" , "*" , "%" , "C" , "="]
     
     override func viewDidLoad() {
@@ -40,7 +40,6 @@ class ViewController: UIViewController {
             }else if number! == "C"{
                 op = ""
                 first = ""
-                second = ""
                 resultSum.text = "0"
             }else {
                 op = number!
