@@ -30,17 +30,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func numberClickEvent( _ sender : UIButton) {
         let number = sender.titleLabel?.text
         
         if opArray.contains(number!) {
-            if number! != "=" {
+            if number! == "=" {
+                calculator(first , resultSum.text! )
+                
+            }else if number! == "C"{
+                op = ""
+                first = ""
+                second = ""
+                resultSum.text = "0"
+            }else {
                 op = number!
                 first = resultSum.text!
                 resultSum.text = ""
-            }else {
-                calculator(first , resultSum.text! )
             }
             
         }else {
@@ -58,6 +63,16 @@ class ViewController: UIViewController {
         switch op {
         case "+":
             resultSum.text = "\(Int(value1)!+Int(value2)!)"
+            
+        case "-":
+            resultSum.text = "\(Int(value1)!-Int(value2)!)"
+            
+        case "*":
+            resultSum.text = "\(Int(value1)!*Int(value2)!)"
+            
+        case "%":
+            resultSum.text = "\(Int(value1)! / Int(value2)!)"
+        
         default:
             print("error")
         }
